@@ -54,7 +54,7 @@ I wanted the app to work in places like underground garages, where there is usua
 
 - The **Service Worker** saves all the app files the first time you open it, so the app opens even without internet.
 - Your spots, photos and notes are saved in **IndexedDB**, which is a small database inside the browser, so they never need the internet.
-- When you lose connection, a yellow bar shows up at the top: *"You're offline. Saving spots, the compass and your history still work. The map will update when you're back online."*
+- When you lose connection, a yellow bar shows up at the top: _"You're offline. Saving spots, the compass and your history still work. The map will update when you're back online."_
 
 GPS, the camera and the compass don't need internet anyway, so almost everything works offline. The only thing that needs a connection is loading new parts of the map. Parts you have already seen are cached, so they still show up.
 
@@ -172,4 +172,4 @@ My goal was 90+ in every Lighthouse category. You can check it yourself in Chrom
 
 ---
 
-Made by Oleh for the course *Development of Progressive Mobile Applications*.
+Made by Oleh for the course _Development of Progressive Mobile Applications_.
