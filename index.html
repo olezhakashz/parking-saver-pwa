@@ -1,52 +1,48 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Character encoding: lets the page show any symbol correctly -->
     <meta charset="UTF-8" />
 
-    <!-- Makes the page fit the phone screen instead of showing a tiny desktop version -->
+    <!-- without this the phone shows a tiny zoomed-out desktop version of the page -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
 
-    <!-- Short description, used by search engines and Lighthouse (SEO score) -->
+    <!-- short text about the app, Lighthouse checks for it in SEO -->
     <meta
       name="description"
       content="Parking Saver remembers where you parked and guides you back to your car."
     />
 
-    <!-- Colour of the browser bar on Android -->
+    <!-- makes the browser bar on Android blue, same as my header -->
     <meta name="theme-color" content="#1e88e5" />
 
     <title>Parking Saver</title>
 
-    <!-- Our only stylesheet -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <!-- ===== Top bar with the app name ===== -->
+    <!-- blue bar at the top with the app name -->
     <header class="app-header">
       <h1 class="app-title">🚗 Parking Saver</h1>
     </header>
 
-    <!-- ===== Offline banner =====
-       Hidden for now ("hidden" attribute). In week 11 JavaScript will show it
-       when the internet connection is lost. -->
+    <!-- yellow "you're offline" bar. it's hidden for now,
+         I'll show it from JS when the internet goes away -->
     <div id="offline-banner" class="offline-banner" hidden>
       You're offline. Saving spots, the compass and your history still work.
     </div>
 
-    <!-- ===== Main area =====
-       Every screen (Save, Find, History) will be drawn inside this element
-       by JavaScript. For week 1 it only shows a welcome message. -->
+    <!-- every screen (Save, Find, History) gets drawn in here by JS,
+         so the page itself never has to reload -->
     <main id="app" class="app-main">
       <p>Loading…</p>
     </main>
 
-    <!-- ===== Bottom navigation =====
-       Three links, one for each screen. The "#/save" part is called a hash.
-       In week 2 our router will read the hash and show the right screen. -->
+    <!-- bottom menu, one link per screen.
+         the links only change the part after the # in the address,
+         the router notices that and swaps the screen -->
     <nav class="bottom-nav" aria-label="Main navigation">
       <a href="#/save" class="nav-link">
         <span class="nav-icon" aria-hidden="true">📍</span>
@@ -62,8 +58,8 @@
       </a>
     </nav>
 
-    <!-- Main JavaScript file. type="module" lets us use import/export
-       and makes the browser load it without blocking the page. -->
+    <!-- type="module" lets me split the code into separate files with import/export,
+         and the page doesn't wait for the script before showing up -->
     <script type="module" src="./js/app.js"></script>
   </body>
 </html>

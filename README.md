@@ -4,7 +4,7 @@ Have you ever walked out of a shopping mall and had no idea where you left your 
 
 You tap one button and the app saves your location together with a photo of the spot. Later, an arrow on the screen points you back to your car, like a compass. You can also set how long you paid for parking, and the app will remind you before the time runs out so you don't get a ticket.
 
-**Try it here:** https://olezhakashz.github.io/parking-saver-pwa/ (works once GitHub Pages is on)
+**Try it here:** https://olezhakashz.github.io/parking-saver-pwa/ (will work later when GitHub Pages launched)
 
 ---
 
