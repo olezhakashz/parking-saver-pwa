@@ -220,3 +220,138 @@ body {
   font-size: 4rem;
   margin: 16px 0 0;
 }
+
+/* =====================================================
+   RESPONSIVE PART
+   everything above is for phones. down here I add rules
+   that only kick in on bigger screens (or special cases)
+   ===================================================== */
+
+/* --- iPhones with the home bar at the bottom ---
+   env(safe-area-inset-bottom) is the height of that bar (0 on phones without it).
+   without this the menu would sit under the bar and be hard to tap.
+   it works because of viewport-fit=cover in index.html */
+.bottom-nav {
+  height: calc(var(--nav-height) + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+body {
+  padding-bottom: calc(var(--nav-height) + env(safe-area-inset-bottom));
+}
+
+/* grid for the history list, I'll fill it with real spots later.
+   on phones it's just one column */
+.spot-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* --- tablets (600px and wider) --- */
+@media (min-width: 600px) {
+  .app-main {
+    padding: 24px;
+  }
+
+  .card {
+    padding: 28px;
+  }
+
+  /* there's more room now, so icon and text go side by side */
+  .nav-link {
+    flex-direction: row;
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+
+  /* a full-width button looks silly on a wide screen */
+  .btn-big {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .spot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- laptops and desktops (1024px and wider) ---
+   here the bottom menu turns into a menu on the left side,
+   because that's how normal websites look on a computer */
+@media (min-width: 1024px) {
+  :root {
+    --sidebar-width: 220px;
+  }
+
+  body {
+    padding-bottom: 0;
+    padding-left: var(--sidebar-width); /* make space for the side menu */
+  }
+
+  .bottom-nav {
+    top: var(--header-height); /* starts under the header */
+    right: auto;
+    width: var(--sidebar-width);
+    height: auto;
+    padding: 16px 0 0;
+    flex-direction: column; /* links go under each other now */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .nav-link {
+    flex: none;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 14px 24px;
+    font-size: 1rem;
+    border-left: 4px solid transparent; /* invisible until active */
+  }
+
+  .nav-link:hover {
+    background: var(--color-bg);
+  }
+
+  /* blue line on the left for the screen you're on */
+  .nav-link.active {
+    border-left-color: var(--color-primary);
+    background: var(--color-bg);
+  }
+
+  .spot-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- phone turned sideways ---
+   there's barely any height, so the big arrow has to shrink
+   or you'd need to scroll to see the button */
+@media (orientation: landscape) and (max-height: 500px) {
+  .compass {
+    font-size: 3.5rem;
+    margin: 8px 0;
+  }
+}
+
+/* --- dark mode ---
+   if the phone is set to dark mode, I just swap the colors.
+   since everything uses the variables, this is all it takes */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121417;
+    --color-surface: #1e2226;
+    --color-text: #e5e7eb;
+    --color-muted: #9ca3af;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-secondary {
+    background: #1e3a5f;
+    color: #bbdefb;
+  }
+
+  .offline-banner {
+    color: #1f2933; /* dark text stays readable on the yellow bar */
+  }
+}
