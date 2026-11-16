@@ -221,6 +221,91 @@ body {
   margin: 16px 0 0;
 }
 
+/* --- save screen: form --- */
+.field-label {
+  display: block;
+  margin: 16px 0 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.text-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cfd8e3;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+}
+
+/* blue outline when you're typing in it */
+.text-input:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: transparent;
+}
+
+/* little message under the form ("finding your location...") */
+.status {
+  min-height: 1.5em; /* keeps the space so the button doesn't jump around */
+  margin: 12px 0 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.status-error {
+  color: #d32f2f;
+}
+
+/* greyed out while it's busy, so you see you can't tap it */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* --- save screen: photo --- */
+.photo-area {
+  margin-top: 16px;
+}
+
+.photo-btn {
+  width: 100%;
+}
+
+/* the live camera picture */
+.camera-box video {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover; /* fills the box without stretching */
+  border-radius: var(--radius);
+  background: #000;
+}
+
+.photo-preview {
+  display: block;
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+}
+
+/* two buttons next to each other */
+.btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.btn-row .btn {
+  flex: 1;
+}
+
+.spot-note {
+  font-weight: 600;
+}
+
 /* =====================================================
    RESPONSIVE PART
    everything above is for phones. down here I add rules
